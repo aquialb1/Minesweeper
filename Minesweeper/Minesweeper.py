@@ -56,6 +56,31 @@ class Board():
                     num_neighboring_mines += 1
                     
         return num_neighboring_mines
+    
+    def dig(self, row, col):
+        self.dug.add((row, col))    # keep track of dig loc
+        
+        # return false if mine is dug, return true if not
+        if self.board[row][col] == '*':
+            return False
+        elif self.board[row][col] > 0:      # dug at loc w/ neighboring mines
+            return True
+        
+        # if board loc is = to 0
+        for r in range(max(0, row-1), min(self.dim_size-1, row+1)+1):
+            for c in range(max(0, col-1), min(self.dim_size-1, col+1)+1):
+                if (r, c) in self.dug:
+                    continue    # don't dig if loc is already dug
+                self.dig(r, c)
+                
+        return True
+    
+    def __str__(self):
+        # generate array to visualize board
+        pass
 
 def play(dim_size = 10, num_mines = 10):
-    pass
+    # generate board
+    board = Board(dim_size, num_mines)
+    
+
