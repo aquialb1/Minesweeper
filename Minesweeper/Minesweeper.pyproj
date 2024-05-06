@@ -11,6 +11,8 @@
     <OutputPath>.</OutputPath>
     <Name>Minesweeper</Name>
     <RootNamespace>Minesweeper</RootNamespace>
+    <InterpreterId>
+    </InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
